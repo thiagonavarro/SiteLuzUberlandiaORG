@@ -1,56 +1,57 @@
-Luz Uberlândia — preparação para WordPress
+Luz Uberlândia — deploy direto na Hostinger
 
-ESTADO: arquivos preparados localmente. Não instalados nem publicados na Hostinger.
+ESTRUTURA ATUAL
+O WordPress 7.1.5 está na raiz do repositório, pronto para ser enviado a public_html.
+Não apontar a origem do deploy para a pasta do tema. Não há etapa de build.
+Tema: wp-content/themes/luz-uberlandia
+Plugin: wp-content/plugins/luz-privacidade
+Configuração de nova instalação: wp-content/mu-plugins/luz-initial-setup.php
+Pacotes para instalação separada: packages/
 
-Conteúdo
-- luz-uberlandia.zip: tema baseado no site do ChatGPT Sites desta conversa.
-- luz-privacidade.zip: plugin com duas páginas editáveis, links no rodapé,
-  aviso informativo e formulário de nome completo, WhatsApp e e-mail.
-- As políticas em HTML também estão na pasta luz-privacidade, para leitura.
+DESTINO PROVISÓRIO
+https://logical-white-wolf-19.hostingersite.com/
+A integração Git identificada acompanha main com diretório de origem na raiz.
+O site Horizons em luzuberlandia.org.br não foi alterado por esta preparação.
 
-O tema é uma conversão da versão do ChatGPT Sites. A versão observada em
-luzuberlandia.org.br tem conteúdo e painel diferentes e não foi substituída.
+PRIMEIRA INSTALAÇÃO
+Após o deploy, abrir a URL provisória e concluir o instalador oficial WordPress
+com o banco MySQL do hPanel e uma conta administrativa. Nunca enviar wp-config.php
+ou credenciais ao Git. Preservar wp-config.php, banco e uploads nos novos deploys.
+O componente inicial configura o tema, plugin, contato e links permanentes somente
+na instalação de um WordPress novo. Em instalação existente, ativar manualmente
+os componentes, criar Contato com [luz_contato] e salvar os links permanentes.
 
-Instalação prevista
-1. Com o conector Hostinger disponível, identificar o plano e o destino.
-2. Preparar uma instalação WordPress isolada, preservando o domínio existente.
-3. Instalar o tema e o plugin. Ao ativar o plugin, ele cria as páginas públicas
-   Política de Privacidade e Política de Cookies se os respectivos slugs ainda
-   não existirem. Não substitui conteúdo de páginas já existentes.
-4. Editar em Páginas no WordPress. O formulário usa [luz_contato] e aparece
-   na página inicial do tema fornecido.
-5. Configurar o envio autenticado do WordPress para contato@luzuberlandia.org.br
-   e verificar entrega real. O wp_mail retornar sucesso não comprova entrega.
-6. Verificar cookies reais da hospedagem, CDN e plugins, antes/depois de login,
-   seus nomes e durações. Atualizar a Política de Cookies com o inventário.
-7. Validar layout em celular, fluxo do formulário, autorização, mensagens de
-   erro e sucesso e reabertura do banner. Só então publicar no destino acordado.
+SUBPÁGINAS APÓS INSTALAR
+/contato/
+/politica-de-privacidade/
+/politica-de-cookies/
+/wp-admin/
+As páginas são editáveis pelo WordPress e armazenadas no banco de dados.
+O .htaccess da raiz encaminha essas URLs para o WordPress.
 
-Privacidade
-- Contatos vão para contato@luzuberlandia.org.br. Não há cadastro em campanhas.
-- A autorização do formulário não vem marcada.
-- O banner apenas informa. Seu fechamento fica em localStorage por 180 dias.
-- Não inclui Analytics, pixels ou incorporações de terceiros.
-- Limitação de envios: cinco tentativas por IP em dez minutos, com chave HMAC
-   temporária; o endereço IP não é enviado no e-mail de contato.
-- Não há armazenamento dos contatos no banco pelo plugin; ficam no e-mail.
-- Exclusão e revisão das mensagens exigem rotina administrativa da igreja.
-- Páginas com formulário não devem receber cache de página além da validade
-   do nonce do WordPress. Configurar a exclusão de cache no destino.
-- O texto é uma base para as práticas deste componente. Deve acompanhar as
-   práticas reais da igreja e a configuração efetiva da hospedagem.
+CONTATO E PRIVACIDADE
+O formulário envia nome, WhatsApp, e-mail e registro de autorização para
+contato@luzuberlandia.org.br. Não há inscrição automática em campanhas.
+A autorização não vem marcada. O banner informativo lembra o fechamento em
+localStorage por 180 dias. Não há Analytics, pixels ou incorporações no tema.
+Os contatos ficam no e-mail; a administração deve revisar e excluir mensagens
+conforme a finalidade. O plugin limita tentativas com chave HMAC temporária.
 
-Pesquisa
-A Hostinger documenta cookie de verificação quando sua CDN desafia o navegador,
-mas não informa nome ou duração nessa documentação. Não foi confirmado no domínio.
+VALIDAÇÕES NA HOSPEDAGEM
+Configurar envio autenticado de e-mail e testar entrega real, sem presumir que
+wp_mail retornar sucesso significa entrega. Excluir formulários de cache prolongado.
+Testar home, contato, políticas, administração, banner e celular no servidor.
+Confirmar cookies reais da CDN e de todos os plugins e atualizar a política.
+A Hostinger documenta cookie de verificação de navegador da CDN, mas a página
+consultada não informa seu nome técnico ou duração; não foram inventados valores.
 https://www.hostinger.com/support/hostinger-cdn-the-browser-verification-page/
-A política dos portais Hostinger não prova cookies no site de um cliente:
+A política dos portais Hostinger não é o inventário de cookies de seus clientes:
 https://www.hostinger.com/legal/cookie-policy
-Referência de estrutura e transparência fornecida pelo usuário:
-https://www.rededorsaoluiz.com.br/instituto/idor/aviso-de-privacidade/
-O link PrivacyTools fornecido não ficou acessível durante esta pesquisa.
-Orientação ANPD:
-https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-cookies-e-protecao-de-dados-pessoais.pdf
+O link PrivacyTools fornecido não ficou acessível durante a pesquisa.
 
-Validação local: sintaxe JavaScript e cenários do banner; arquivos PHP precisam
-de verificação na instalação WordPress. Não houve teste de entrega de e-mail.
+CHECKS LOCAIS
+3.783 arquivos oficiais do núcleo conferidos com checksums da API wordpress.org.
+Sintaxe PHP do tema, plugin e configuração inicial analisada; JavaScript validado.
+Banner verificado quanto a primeira visita, fechamento, reabertura e expiração.
+A instalação com banco MySQL e a entrega de e-mail ainda precisam ser testadas.
+Consulte README.md para instruções completas e manutenção.

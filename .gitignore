@@ -1,0 +1,12 @@
+# Configuração, credenciais e dados próprios de cada instalação.
+/wp-config.php
+/.env
+/.env.*
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/debug.log
+*.log
+.DS_Store
+Thumbs.db

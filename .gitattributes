@@ -1,0 +1,2 @@
+# Preserve os bytes da distribuição oficial (inclusive checksums e binários).
+* -text
