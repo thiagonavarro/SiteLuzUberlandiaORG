@@ -1,0 +1,56 @@
+Luz Uberlândia — preparação para WordPress
+
+ESTADO: arquivos preparados localmente. Não instalados nem publicados na Hostinger.
+
+Conteúdo
+- luz-uberlandia.zip: tema baseado no site do ChatGPT Sites desta conversa.
+- luz-privacidade.zip: plugin com duas páginas editáveis, links no rodapé,
+  aviso informativo e formulário de nome completo, WhatsApp e e-mail.
+- As políticas em HTML também estão na pasta luz-privacidade, para leitura.
+
+O tema é uma conversão da versão do ChatGPT Sites. A versão observada em
+luzuberlandia.org.br tem conteúdo e painel diferentes e não foi substituída.
+
+Instalação prevista
+1. Com o conector Hostinger disponível, identificar o plano e o destino.
+2. Preparar uma instalação WordPress isolada, preservando o domínio existente.
+3. Instalar o tema e o plugin. Ao ativar o plugin, ele cria as páginas públicas
+   Política de Privacidade e Política de Cookies se os respectivos slugs ainda
+   não existirem. Não substitui conteúdo de páginas já existentes.
+4. Editar em Páginas no WordPress. O formulário usa [luz_contato] e aparece
+   na página inicial do tema fornecido.
+5. Configurar o envio autenticado do WordPress para contato@luzuberlandia.org.br
+   e verificar entrega real. O wp_mail retornar sucesso não comprova entrega.
+6. Verificar cookies reais da hospedagem, CDN e plugins, antes/depois de login,
+   seus nomes e durações. Atualizar a Política de Cookies com o inventário.
+7. Validar layout em celular, fluxo do formulário, autorização, mensagens de
+   erro e sucesso e reabertura do banner. Só então publicar no destino acordado.
+
+Privacidade
+- Contatos vão para contato@luzuberlandia.org.br. Não há cadastro em campanhas.
+- A autorização do formulário não vem marcada.
+- O banner apenas informa. Seu fechamento fica em localStorage por 180 dias.
+- Não inclui Analytics, pixels ou incorporações de terceiros.
+- Limitação de envios: cinco tentativas por IP em dez minutos, com chave HMAC
+   temporária; o endereço IP não é enviado no e-mail de contato.
+- Não há armazenamento dos contatos no banco pelo plugin; ficam no e-mail.
+- Exclusão e revisão das mensagens exigem rotina administrativa da igreja.
+- Páginas com formulário não devem receber cache de página além da validade
+   do nonce do WordPress. Configurar a exclusão de cache no destino.
+- O texto é uma base para as práticas deste componente. Deve acompanhar as
+   práticas reais da igreja e a configuração efetiva da hospedagem.
+
+Pesquisa
+A Hostinger documenta cookie de verificação quando sua CDN desafia o navegador,
+mas não informa nome ou duração nessa documentação. Não foi confirmado no domínio.
+https://www.hostinger.com/support/hostinger-cdn-the-browser-verification-page/
+A política dos portais Hostinger não prova cookies no site de um cliente:
+https://www.hostinger.com/legal/cookie-policy
+Referência de estrutura e transparência fornecida pelo usuário:
+https://www.rededorsaoluiz.com.br/instituto/idor/aviso-de-privacidade/
+O link PrivacyTools fornecido não ficou acessível durante esta pesquisa.
+Orientação ANPD:
+https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-cookies-e-protecao-de-dados-pessoais.pdf
+
+Validação local: sintaxe JavaScript e cenários do banner; arquivos PHP precisam
+de verificação na instalação WordPress. Não houve teste de entrega de e-mail.
